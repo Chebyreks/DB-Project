@@ -13,16 +13,19 @@
 - *orders* - Заказы
 - *delivery_agents* - Доставщики
 - *delivery_vehicle* - Транспорт доставки
+- *delivery_vehicle_log* - Информация об использовании транспорта
 
 ## Концептуальная модель
-![image](https://github.com/user-attachments/assets/e4f66108-5dfc-407b-bcc4-eadf3e95dec8)
+![image](https://github.com/user-attachments/assets/95d1a870-0513-4c96-8f39-bf9d0bef156c)
 
 
 ## Логическая модель
-![image](https://github.com/user-attachments/assets/7fca6877-3c72-4db6-8d9b-dd17e0452dd8)
+![Снимок экрана 2025-04-12 163804](https://github.com/user-attachments/assets/4db1567f-2603-491b-9e27-308d2c413c6e)
 
 Таблица имеет вторую нормальную форму (2NF)
-Выбран тип SCD 1, нам не имеет смысла сохранять в историю данные аттрибутов до изменений
+
+Выбран тип SCD 2 для таблицы *delivery_vehicle_log*. Выбран такой тип, потому что нам надо хранить период использования транспорта
+
 ### users
 
 | Поле | Доп. Описание | Тип |
@@ -88,7 +91,7 @@
 | *surname* | ... | VARCHAR(30) |
 | *active* | Работает ли в данный момент доставщик (свободный график к примеру) | BOOL |
 
-### delivery vehicle
+### delivery_vehicle
 
 | Поле | Доп. Описание | Тип |
 |---|---|---|
@@ -96,3 +99,13 @@
 | *vehicle* | Сам транспорт (машина, велосипед, самокат) | VARCHAR(30) |
 | *vacant* | Использует ли кто-то из доставщиков этот транспорт в данный момент | BOOL |
 | *storage_adress* | Адрес хранения транспорта (куда возвращать после работы, или смене транспорта) | VARCHAR(200) |
+
+### delivery_vehicle_log
+
+| Поле | Доп. Описание | Тип |
+|---|---|---|
+| *id* | ... | SERIAL |
+| *vehicle_id* | ... | INT |
+| *agent_id* | ... | INT |
+| *time_start* | Время начала использования | TIMESTAMP |
+| *time_stop* | Время окончания использования (Null если все ещё) | TIMESTAMP |
