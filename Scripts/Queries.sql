@@ -25,7 +25,7 @@ WHERE sc.active = true
 GROUP BY sc.shopping_cart_id;
 
 --5 Найти имя пользователя с наибольшим количеством бонусов.
-SELECT user_id, account_name, bonus_credits
+SELECT account_name, account_name, bonus_credits
 FROM users
 WHERE bonus_credits = (SELECT MAX(bonus_credits) FROM users);
 
