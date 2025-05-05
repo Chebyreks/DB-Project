@@ -12,24 +12,24 @@ INSERT INTO users (account_name, email, phone_number, bonus_credits) VALUES
 ('sofia_clark', 'sofia.clark@example.com', '+18889990011', 90),
 ('ethan_lee', 'ethan.lee@example.com', '+19991122334', 110);
 
-INSERT INTO shopping_carts (user_id, active) VALUES
-(1, TRUE),
-(2, TRUE),
-(3, TRUE),
-(4, TRUE),
-(5, TRUE),
-(6, TRUE),
-(7, TRUE),
-(8, TRUE),
-(9, TRUE),
-(10, TRUE),
+INSERT INTO shopping_carts (user_name, active) VALUES
+('john_doe', TRUE),
+('alice_smith', TRUE),
+('bob_jones', TRUE),
+('mary_davis', TRUE),
+('charlie_brown', TRUE),
+('emma_wilson', TRUE),
+('olivia_taylor', TRUE),
+('liam_moore', TRUE),
+('sofia_clark', TRUE),
+('ethan_lee', TRUE),
 
 -- Не активные корзины. Уже завершённые заказы
-(1, FALSE),
-(2, FALSE),
-(3, FALSE),
-(4, FALSE),
-(5, FALSE);
+('john_doe', FALSE),
+('alice_smith', FALSE),
+('bob_jones', FALSE),
+('mary_davis', FALSE),
+('charlie_brown', FALSE);
 
 INSERT INTO categories (name) VALUES
 ('Электроника'),
